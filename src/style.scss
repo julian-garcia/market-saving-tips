@@ -1,0 +1,168 @@
+$tablet: 900px;
+$dark-grey: #434343;
+$accent: #FFA800;
+
+* {font-family: 'Roboto', sans-serif;}
+
+.container {
+  background: black;
+  min-height: 100vh;
+  position: relative;
+}
+
+.card {
+  position: relative;
+  width: 100vw;
+  height: unset;
+  max-width: 100vw;
+  transform: none;
+  background: #797979;
+
+  @media (min-width: $tablet) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1300px;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    background: $dark-grey;
+    columns: white;
+    padding: 2rem;
+
+    &-text {
+      margin: 0;
+      display: inline-block;
+      text-align: right;
+      font-size: 2.5rem;
+      color: white;
+    }
+  }
+
+  &__form {
+    background: $accent;
+    width: 100vw;
+    height: unset;
+    position: relative;
+    border-radius: 0;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+
+    @media (min-width: $tablet) {
+      width: 400px;
+      min-height: 580px;
+      position: absolute;
+      right: 3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 10px;
+    }
+
+    &-label {
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      padding-left: 55px;
+      padding-bottom: 50px;
+      margin: 0 1rem;
+    }
+    &-radio {
+      cursor: pointer;
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      &:checked ~ .card__form-checkmark {
+        background: #D8E22C;
+      }
+    }
+    &-checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      height: 30px;
+      width: 45px;
+      background-color: lightgrey;
+      color: $dark-grey;
+      border-radius: 10px;
+      font-size: 1.6rem;
+      font-family: 'PT Sans', sans-serif;
+    }
+  }
+
+  &__body {
+    padding: 1rem 2rem;
+
+    &-title, &-subtitle {
+      font-family: 'PT Sans', sans-serif;
+    }
+    &-title {
+      font-size: 2.4rem;
+      color: $dark-grey;
+    }
+    &-subtitle {
+      font-family: 'PT Sans', sans-serif;
+      font-size: 2rem;
+    }
+  }
+
+  &__benefits {
+    list-style: none;
+    padding-left: 70px;
+
+    &-item {
+      font-size: 1.8rem;
+      margin: 40px 0 40px;
+      position: relative;
+      
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -70px;
+        width: 40px;
+        height: 40px;
+      }
+
+      &:before {
+        border: 5px solid $dark-grey;
+        border-radius: 50%;
+      }
+
+      &:after {
+        background-image: url('./images/check.svg');
+        background-size: 45px 45px;
+        background-repeat: no-repeat;
+        background-position: center;
+        left: -60px;
+      }
+    }
+  }
+}
+
+.accent {
+  color: $accent;
+}
+
+.shadow {
+  text-shadow: 1px 1px black;
+}
+
+.no-margin { margin: 0; }
+.no-margin-top { margin-top: 0; }
+.no-margin-bottom { margin-bottom: 0; }
+
+.half-width {
+  width: 100%;
+  @media (min-width: $tablet) {
+    width: 50%;
+  }
+}
+
+body {
+  margin: 0;
+}
